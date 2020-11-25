@@ -219,7 +219,7 @@ client.connect(err => {
     const dates = getWeekDates(new Date(firstDay), new Date(lastDay))
 
     bookedAppointmentsCollection.find({
-      "appointmentWith.doctorEmail": req.params.email,
+      "appointmentWith.doctorEmail": req.params.email, 
       date: { $in: [...dates] }
     })
       .toArray((err, documents) => {
@@ -294,4 +294,4 @@ client.connect(err => {
 
 
 
-app.listen(port);
+app.listen(process.env.PORT || port);

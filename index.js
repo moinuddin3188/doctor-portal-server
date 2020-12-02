@@ -249,12 +249,11 @@ client.connect(err => {
 
   app.patch('/updateStatus/:id', (req, res) => {
     const status = req.body.status;
-    const bg = req.body.bg;
-    const color = req.body.color;
+    const statusBG = req.body.statusBG;
 
     bookedAppointmentsCollection.updateOne({ _id: objectID(req.params.id) },
       {
-        $set: { status: status, bg: bg, color: color }
+        $set: { status: status, statusBG: statusBG }
       })
       .then(result => {
 
